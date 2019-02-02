@@ -104,6 +104,16 @@ def gasSpecification(gasDay=None):
 #endregion Gas Specification
 
 #region Large User Consumption
+def largeUserConsumption(gasDay=None):
+
+    if gasDay is None :
+        endpoint = '/largeUserConsumption/current'
+    elif gasDay is not None:
+        endpoint = """/largeUserConsumption/{0}""".format(gasDay)
+    result = __call_api(endpoint)
+    dataFrame_rows = pd.io.json.json_normalize(result, ['rows'],['reportId','asAt','gasDay'],record_prefix='_')
+
+    return dataFrame_rows
 #endregion Large User Consumption
 
 #region Large User Consumption by Category
@@ -116,4 +126,4 @@ def gasSpecification(gasDay=None):
 #endregion medium Term Capacity
 
 
-print(gasSpecification().to_string())
+print(largeUserConsumption("2019-01-01").to_string())

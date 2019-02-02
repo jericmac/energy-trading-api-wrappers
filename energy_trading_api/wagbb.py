@@ -12,12 +12,12 @@ def __call_api(endpoint):
 #region CAPACITY OUTLOOK REPORT
 
 # blank call - current
-def capacityOutlook(date=None):
+def capacityOutlook(gasDay=None):
 
-    if date is None:
+    if gasDay is None:
         endpoint = '/capacityOutlook/current'
-    elif date is not None:
-        endpoint = """/capacityOutlook/{0}""".format(date)
+    elif gasDay is not None:
+        endpoint = """/capacityOutlook/{0}""".format(gasDay)
 
     result = __call_api(endpoint)
 

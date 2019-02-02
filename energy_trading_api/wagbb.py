@@ -91,6 +91,7 @@ def forecastFlow(gasDay=None):
 #endregion forecast Flow
 
 #region Gas Specification
+
 #endregion Gas Specification
 
 #region Large User Consumption
@@ -106,4 +107,4 @@ def forecastFlow(gasDay=None):
 #endregion medium Term Capacity
 
 
-print(forecastFlow().to_string())
+print(forecastFlow("2019-01-10").to_string())

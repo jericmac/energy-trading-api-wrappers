@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="energy_trading_api_wrappers",
-    version="0.0.1",
+    version="0.0.2",
     author="jericmac",
     author_email="",
     description="API Wrappers for the Energy Markets",

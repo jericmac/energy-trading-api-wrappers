@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="energy_trading_api_wrappers",
+    name="energy_trading_api",
     version="0.0.2",
     author="jericmac",
     author_email="",

@@ -1,2 +1,3 @@
-import energy-trading-api-wrappers.wagbb.wagbb as wagbb
+from energy_trading_api import wagbb as w
 
+w.capacityOutlook()

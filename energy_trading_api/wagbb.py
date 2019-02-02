@@ -17,4 +17,4 @@ def capacityOutlook():
     result = __call_api('/capacityOutlook/current')
     df = pd.io.json.json_normalize(result, ['rows'])
     df1 = df.join(pd.DataFrame(df.pop('capacity').tolist()))
-    print(df1.to_string())
+    return df1

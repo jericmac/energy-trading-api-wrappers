@@ -24,7 +24,7 @@ $ pip install energy-trading-api
 
 ### Western Australia Gas Bulletin Board
 ```python
-from energy_trading_api import wagbb
+from energy_trading_api import wagbb 
 wagbb.capacityOutlook()
 ```    
 [WAGBB API Documentation](https://gbbwa.aemo.com.au/api/v1/document/1f2bc41e-3e42-41eb-86f7-4a10d2d6e4bc/content)

@@ -1,5 +1,6 @@
 # Energy Trading API Wrappers
-API Wrappers for Energy Markets Data
+API Wrappers for Energy Markets Data from publicly available sources.
+
 > **disclaimer** While readily useable, this API library is under constant in development. Enjoy!
 
 Supported APIs:

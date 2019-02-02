@@ -91,7 +91,16 @@ def forecastFlow(gasDay=None):
 #endregion forecast Flow
 
 #region Gas Specification
+def gasSpecification(gasDay=None):
 
+    if gasDay is None :
+        endpoint = '/gasSpecification/current'
+    elif gasDay is not None:
+        endpoint = """/gasSpecification/{0}""".format(gasDay)
+    result = __call_api(endpoint)
+    dataFrame_rows = pd.io.json.json_normalize(result, ['rows'],['reportId','asAt','gasDay'],record_prefix='_')
+
+    return dataFrame_rows
 #endregion Gas Specification
 
 #region Large User Consumption
@@ -107,4 +116,4 @@ def forecastFlow(gasDay=None):
 #endregion medium Term Capacity
 
 
-print(forecastFlow("2019-01-10").to_string())
+print(gasSpecification().to_string())

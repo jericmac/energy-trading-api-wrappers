@@ -6,7 +6,7 @@ This package aims to build Pandas-based API wrappers for Energy Markets Data com
 
 Supported APIs:
 
-- [WA Gas Bulletin Board](https://gbbwa.aemo.com.au/)
+- [Western Australia Gas Bulletin Board](https://gbbwa.aemo.com.au/)
 
 ## Installation
 * Python 3.6 or 3.7

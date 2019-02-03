@@ -4,4 +4,4 @@ from energy_trading_api import wagbb as w
 df = w.capacityOutlook(gasDay="2018-01-01")
 df = w.largeUserConsumptionByCategory()
 # filter for DBNGP Pipeline
-print(df[df['facilityCode']=='DBNGP'].to_string())
+print(df[df['zoneName']=='Pilbara'].to_string())

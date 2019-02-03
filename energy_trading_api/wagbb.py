@@ -117,13 +117,41 @@ def largeUserConsumption(gasDay=None):
 #endregion Large User Consumption
 
 #region Large User Consumption by Category
+def largeUserConsumptionByCategory(gasDay=None):
+
+    if gasDay is None :
+        endpoint = '/largeUserConsumptionByCategory/current'
+    elif gasDay is not None:
+        endpoint = """/largeUserConsumptionByCategory/{0}""".format(gasDay)
+    result = __call_api(endpoint)
+    dataFrame_rows = pd.io.json.json_normalize(result, ['rows'],['reportId','asAt','gasDay'])
+
+    return dataFrame_rows
 #endregion Large User Consumption by Category
 
 #region Linepack Capacity Adequacy
+def linepackCapacityAdequacy(gasDay=None):
+    if gasDay is None :
+        endpoint = '/linepackCapacityAdequacy/current'
+    elif gasDay is not None:
+        endpoint = """/linepackCapacityAdequacy/{0}""".format(gasDay)
+    result = __call_api(endpoint)
+    dataFrame_rows = pd.io.json.json_normalize(result, ['rows'],['reportId','asAt','gasDay'])
+    dataFrame_rows = dataFrame_rows.join(pd.DataFrame(dataFrame_rows.pop('status').tolist()))
+    return dataFrame_rows
 #endregion Linepack Capacity Adequacy
 
 #region medium Term Capacity
+def mediumTermCapacity(gasDay=None):
+    if gasDay is None :
+        endpoint = '/mediumTermCapacity/current'
+    elif gasDay is not None:
+        endpoint = """/mediumTermCapacity/{0}""".format(gasDay)
+    result = __call_api(endpoint)
+    dataFrame_rows = pd.io.json.json_normalize(result, ['rows'],['reportId','asAt','gasDay'])
+    # dataFrame_rows = dataFrame_rows.join(pd.DataFrame(dataFrame_rows.pop('status').tolist()))
+    return dataFrame_rows
 #endregion medium Term Capacity
 
 
-print(largeUserConsumption("2019-01-01").to_string())
+print(mediumTermCapacity("2019-01-01").to_string())

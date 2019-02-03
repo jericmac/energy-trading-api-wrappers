@@ -11,19 +11,16 @@ def __call_api(endpoint):
     return request.json()
 
 
-def _basic_gasday_call(endpoint, gasDay="current", record_prefix=None):
+def _basic_gasday_call(endpoint, gasDay="current", record_prefix=None, column_pop=None):
     result = __call_api(f"/{endpoint}/{gasDay}")
 
-    return pd.io.json.json_normalize(
+    df = pd.io.json.json_normalize(
         result, ["rows"], ["reportId", "asAt", "gasDay"], record_prefix=record_prefix
     )
-
-
-def capacityOutlook(gasDay="current"):
-
-    dataFrame_rows = _basic_gasday_call("capacityOutlook", gasDay)
-    # The result comes with the Capacity column structured as a dict, so this next line breaks it up to columns
-    return dataFrame_rows.join(pd.DataFrame(dataFrame_rows.pop("capacity").tolist()))
+    if column_pop:
+        # The result comes with the Capacity column structured as a dict, so this next line breaks it up to columns
+        return df.join(pd.DataFrame(df.pop(column_pop).tolist()))
+    return df
 
 
 def actualFlow(gasDay="current", month=None):
@@ -34,24 +31,12 @@ def endUserConsumption(gasDay="current"):
     return _basic_gasday_call("endUserConsumption", gasDay)
 
 
-def forecastFlow(gasDay="current"):
+def largeUserConsumptionByCategory(gasDay="current"):
+    return _basic_gasday_call("largeUserConsumptionByCategory", gasDay)
 
-    dataFrame_rows = _basic_gasday_call("forecastFlow", gasDay)
 
-    # breakout daily forecast receipts and deliveries
-    dataFrame_rows = dataFrame_rows.join(
-        pd.DataFrame(dataFrame_rows.pop("forecast").tolist())
-    )
-
-    for i in range(7):
-        dataFrame_rows = dataFrame_rows.join(
-            pd.DataFrame(dataFrame_rows.pop(f"d{i}").tolist())
-        )
-        dataFrame_rows.rename(
-            columns={"delivery": f"d{i}_delivery", "receipt": f"d{i}_receipt"},
-            inplace=True,
-        )
-    return dataFrame_rows
+def mediumTermCapacity(gasDay="current"):
+    return _basic_gasday_call("mediumTermCapacity", gasDay)
 
 
 def gasSpecification(gasDay="current"):
@@ -62,18 +47,24 @@ def largeUserConsumption(gasDay="current"):
     return _basic_gasday_call("largeUserConsumption", gasDay, record_prefix="_")
 
 
-def largeUserConsumptionByCategory(gasDay="current"):
-    return _basic_gasday_call("largeUserConsumptionByCategory", gasDay)
+def capacityOutlook(gasDay="current"):
+    return _basic_gasday_call("capacityOutlook", gasDay, column_pop="capacity")
 
 
 def linepackCapacityAdequacy(gasDay="current"):
-    dataFrame_rows = _basic_gasday_call("linepackCapacityAdequacy", gasDay)
+    return _basic_gasday_call("linepackCapacityAdequacy", gasDay, column_pop="status")
 
-    dataFrame_rows = dataFrame_rows.join(
-        pd.DataFrame(dataFrame_rows.pop("status").tolist())
-    )
+
+def forecastFlow(gasDay="current"):
+
+    dataFrame_rows = _basic_gasday_call("forecastFlow", gasDay, column_pop="forecast")
+
+    for i in range(7):
+        dataFrame_rows = dataFrame_rows.join(
+            pd.DataFrame(dataFrame_rows.pop(f"d{i}").tolist())
+        )
+        dataFrame_rows.rename(
+            columns={"delivery": f"d{i}_delivery", "receipt": f"d{i}_receipt"},
+            inplace=True,
+        )
     return dataFrame_rows
-
-
-def mediumTermCapacity(gasDay="current"):
-    return _basic_gasday_call("mediumTermCapacity", gasDay)

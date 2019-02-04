@@ -45,7 +45,7 @@ df = jepx.spotLatest("20190101")
 ### U.S. Energy Information Administration
 ```python
 from energy_trading_api import eia_api 
-
+df = eia_api.ngAustraliaProduction("<YOUR-API-KEY-HERE>")
 ```    
 [EIA-Python Documentation](https://github.com/mra1385/EIA-python)
 [EIA API Documentation](https://www.eia.gov/opendata/commands.php)

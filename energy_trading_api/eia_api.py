@@ -16,6 +16,9 @@ def __call_api(report,key):
     result = pd.DataFrame(series_search)
     return result
 
+def eiaAPI(seriesID="",key=""):
+    return __call_api(seriesID,key)
+
 def coalAustraliaProduction(key=""):
     return __call_api("australiaCoalProduction",key)
 

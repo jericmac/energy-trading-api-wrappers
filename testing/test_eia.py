@@ -7,3 +7,4 @@ def test_australiaCoalProduction(key=api_key):
 
 def test_australiaCoalConsumption(key=api_key):
     assert not eia_api.coalAustraliaConsumption(key=key).empty
+

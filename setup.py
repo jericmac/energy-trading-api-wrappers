@@ -12,6 +12,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/jericmac/energy-trading-api-wrappers",
+    install_requires=["eia-python == 1.22"],
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",

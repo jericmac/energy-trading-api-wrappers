@@ -13,7 +13,7 @@ Supported APIs:
 - [Japan Electric Power Exchange](http://www.jepx.org/)
 
 > **Global**
-- [EIA API Documentation](https://www.eia.gov/opendata/)
+- [U.S. Energy Information Administration Open Data](https://www.eia.gov/opendata/)
 
 ## Installation
 * Python 3.6 or 3.7

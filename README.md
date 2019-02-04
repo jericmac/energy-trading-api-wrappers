@@ -12,6 +12,9 @@ Supported APIs:
 > **Japan**
 - [Japan Electric Power Exchange](http://www.jepx.org/)
 
+> **Global**
+- [EIA API Documentation](https://www.eia.gov/opendata/)
+
 ## Installation
 * Python 3.6 or 3.7
 
@@ -38,5 +41,11 @@ wagbb.capacityOutlook()
 from energy_trading_api import jepx 
 df = jepx.spotLatest()
 df = jepx.spotLatest("20190101")
+```    
+### U.S. Energy Information Administration
+```python
+from energy_trading_api import eia_api 
 
 ```    
+[EIA-Python Documentation](https://github.com/mra1385/EIA-python)
+[EIA API Documentation](https://www.eia.gov/opendata/commands.php)

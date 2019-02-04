@@ -19,7 +19,13 @@ def test_ForecastFlowDate(gasDay="2018-01-01"):
     # load capacity outlook
     assert not w.forecastFlow(gasDay).empty
 
+def test_endUserConsumption():
+    # load capacity outlook
+    assert not w.endUserConsumption().empty
 
+def test_endUserConsumption(gasDay="2018-01-01"):
+    # load capacity outlook
+    assert not w.endUserConsumption(gasDay).empty
 
 
 # df = w.largeUserConsumptionByCategory()

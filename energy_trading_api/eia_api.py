@@ -19,4 +19,7 @@ def __call_api(report,key):
 def coalAustraliaProduction(key=""):
     return __call_api("australiaCoalProduction",key)
 
+def coalAustraliaConsumption(key=""):
+    return __call_api("australiaCoalConsumption",key)
+
 

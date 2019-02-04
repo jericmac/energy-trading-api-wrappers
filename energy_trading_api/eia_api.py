@@ -7,7 +7,7 @@ Contains select calls to distinct Data Series, and returns pandas dataFrames
 """
 import eia
 import pandas as pd
-from .common import commonData
+from common import commonData
 
 
 def __call_api(report,key):
@@ -21,5 +21,8 @@ def coalAustraliaProduction(key=""):
 
 def coalAustraliaConsumption(key=""):
     return __call_api("australiaCoalConsumption",key)
+
+def ngAustraliaProduction(key=""):
+    return __call_api("australiaNGConsumption",key)
 
 

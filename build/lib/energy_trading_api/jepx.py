@@ -15,28 +15,21 @@ Usage: call "spotLatest", providing date in YYYYMMDD format. Will otherwise retu
 """
 
 import pandas as pd
-import io
+from io import StringIO
 import requests
 
-def __call_api(endpoint):
-    url="http://www.jepx.org/data/%s"%(endpoint)
-    s = requests.get(url).content
+
+def __call_api(endpoint, column_names=None):
+    url = f"http://www.jepx.org/data/{endpoint}"
+    s = StringIO(requests.get(url).content.decode("utf-8"))
     try:
-        results = pd.read_csv(io.StringIO(s.decode('utf-8')), header=None,names = ["date", "interval", "price", "volume"])
+        return pd.read_csv(s, header=None, names=column_names)
     except:
-        results = None
+        return None
 
-    return results
 
-def spotLatest(day=None):
-
-    if day is None:
-        endpoint = 'SpotLatest.csv'
-    elif day is not None:
-        endpoint = """{0}.csv""".format(day)
-
-    result = __call_api(endpoint)
-
-    return result
-
+def spotLatest(day="SpotLatest"):
+    return __call_api(
+        f"{day}.csv", column_names=["date", "interval", "price", "volume"]
+    )
 

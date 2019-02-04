@@ -46,5 +46,16 @@ class commonData:
         ('europeNGConsumption', 'INTL.4413-2-EURO-QBTU.A'),
         ('southAmericaNGConsumption', 'INTL.4413-2-CSAM-QBTU.A'),
         # endregion Consumption
+
+        # region Price
+        ('henryHubNGSpotPriceDaily', 'NG.RNGWHHD.D'),
+        # endregion Price
         # endregion NG
+
+        # region CRUDE
+        # region Price
+        ('wtiCushingSpotPriceDaily', 'PET.RWTC.D'),
+        # endregion Price
+        # endregion CRUDE
+
     ])

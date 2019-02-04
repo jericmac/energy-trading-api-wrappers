@@ -25,4 +25,10 @@ def coalAustraliaConsumption(key=""):
 def ngAustraliaProduction(key=""):
     return __call_api("australiaNGConsumption",key)
 
+def ngHenryHubSpotDaily(key=""):
+    return __call_api("henryHubNGSpotPriceDaily",key)
+
+def crudeCushingSpotDaily(key=""):
+    return __call_api("wtiCushingSpotPriceDaily",key)
+
 

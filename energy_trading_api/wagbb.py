@@ -7,12 +7,11 @@ from pandas.io.json import json_normalize
 
 
 def __call_api(endpoint):
-    request = requests.get(f"https://gbbwa.aemo.com.au/api/v1/report{endpoint}")
-    return request.json()
+    return requests.get(f"https://gbbwa.aemo.com.au/api/v1/report/{endpoint}").json()
 
 
 def _basic_gasday_call(endpoint, gasDay="current", record_prefix=None, column_pop=None):
-    result = __call_api(f"/{endpoint}/{gasDay}")
+    result = __call_api(f"{endpoint}/{gasDay}")
 
     df = pd.io.json.json_normalize(
         result, ["rows"], ["reportId", "asAt", "gasDay"], record_prefix=record_prefix

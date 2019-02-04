@@ -31,7 +31,7 @@ def test_largeUserConsumptionByCategory():
     # load capacity outlook
     assert not w.largeUserConsumptionByCategory().empty
 
-def test_largeUserConsumptionByCategory(gasDay="2018-01-01"):
+def test_largeUserConsumptionByCategoryDate(gasDay="2018-01-01"):
     # load capacity outlook
     assert not w.largeUserConsumptionByCategory(gasDay).empty
 
@@ -39,7 +39,7 @@ def test_mediumTermCapacity():
     # load capacity outlook
     assert not w.largeUserConsumptionByCategory().empty
 
-def test_mediumTermCapacity(gasDay="2018-01-01"):
+def test_mediumTermCapacityDate(gasDay="2018-01-01"):
     # load capacity outlook
     assert not w.largeUserConsumptionByCategory(gasDay).empty
 
@@ -47,6 +47,6 @@ def test_gasSpecification():
     # load capacity outlook
     assert not w.largeUserConsumptionByCategory().empty
 
-def test_gasSpecification(gasDay="2018-01-01"):
+def test_gasSpecificationDate(gasDay="2018-01-01"):
     # load capacity outlook
     assert not w.largeUserConsumptionByCategory(gasDay).empty

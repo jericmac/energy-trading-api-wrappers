@@ -10,9 +10,13 @@ import pandas as pd
 from .common import commonData
 
 
-def __call_api(report,key):
+def __call_api(report=None,key=""):
     api = eia.API(key)
-    series_search = api.data_by_series(series=commonData.dictEiaReports.get(report))
+    if report==None:
+        series_search = api.data_by_series(series=commonData.dictEiaReports.get(report))
+    else:
+        series_search = api.data_by_series(series="report")
+
     result = pd.DataFrame(series_search)
     return result
 

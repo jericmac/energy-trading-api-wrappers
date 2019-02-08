@@ -30,7 +30,7 @@ def coalAustraliaConsumption(key=""):
     return __call_api(report="australiaCoalConsumption",key=key,series=None)
 
 def ngAustraliaProduction(key=""):
-    return __call_api(report="australiaNGConsumption",key=key,series=None)
+    return __call_api(report="australiaNGProduction",key=key,series=None)
 
 def ngHenryHubSpotDaily(key=""):
     return __call_api(report="henryHubNGSpotPriceDaily",key=key,series=None)

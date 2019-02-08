@@ -11,6 +11,7 @@ Supported APIs:
 
 > **Japan**
 - [Japan Electric Power Exchange](http://www.jepx.org/)
+- [Kyushu Electric Power Company - H/5M Demand and Forecasted Demand](http://www.kyuden.co.jp)
 
 > **Global**
 - [U.S. Energy Information Administration Open Data](https://www.eia.gov/opendata/)
@@ -36,12 +37,21 @@ wagbb.capacityOutlook()
 ```    
 [WAGBB API Documentation](https://gbbwa.aemo.com.au/api/v1/document/1f2bc41e-3e42-41eb-86f7-4a10d2d6e4bc/content)
 
+#JAPAN
 ### Japan Electric Power Exchange
 ```python
 from energy_trading_api import jepx 
 df = jepx.spotLatest()
 df = jepx.spotLatest("20190101")
-```    
+```  
+
+### Kyushu Electric Power Company (Kyuden)
+```python
+from energy_trading_api import japanElectricity as je 
+df = je.kyushuElectricdemandJapanese()
+df1 = je.kyushuElectricdemandJapanese(day="20190101")
+```  
+  
 ### U.S. Energy Information Administration
 ```python
 from energy_trading_api import eia_api 

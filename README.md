@@ -29,7 +29,7 @@ $ pip install energy-trading-api
 
 
 ## Usage
-###AUSTRALIA
+### AUSTRALIA
 ##### Western Australia Gas Bulletin Board
 ```python
 from energy_trading_api import wagbb 
@@ -37,7 +37,7 @@ wagbb.capacityOutlook()
 ```    
 [WAGBB API Documentation](https://gbbwa.aemo.com.au/api/v1/document/1f2bc41e-3e42-41eb-86f7-4a10d2d6e4bc/content)
 
-###JAPAN
+### JAPAN
 ##### Japan Electric Power Exchange
 ```python
 from energy_trading_api import jepx 
@@ -52,7 +52,7 @@ df = je.kyushuElectricdemandJapanese()
 df1 = je.kyushuElectricdemandJapanese(day="20190101")
 ```  
  
-###GLOBAL
+### GLOBAL
 ##### U.S. Energy Information Administration
 ```python
 from energy_trading_api import eia_api 

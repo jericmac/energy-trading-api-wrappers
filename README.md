@@ -12,7 +12,8 @@ Supported APIs:
 > **Japan**
 - [Japan Electric Power Exchange](http://www.jepx.org/)
 - [Kyushu Electric Power Company - H/5M Demand and Forecasted Demand](http://www.kyuden.co.jp)
-- [Chubu Electric Power Company - Hourly Demand](http://denki-yoho.chuden.jp)
+- [Chubu Electric Power Company - Hourly Historical and Current Demand](http://denki-yoho.chuden.jp)
+- [Tokyo Electric Power Company - Hourly Historical and Current Demand](http://tepco.co.jp)
 > **Global**
 - [U.S. Energy Information Administration Open Data](https://www.eia.gov/opendata/)
 

@@ -4,6 +4,7 @@ Japan Electricity Utilities Web APIs
 List of Utilities:
     - Kyushu Electric
     - Chubu Electric
+    - Tokyo Electric
 """
 
 import pandas as pd

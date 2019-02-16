@@ -8,6 +8,7 @@ The results are returned in the Pandas dataFrame format unless specified otherwi
 Supported APIs:
 > **Australia**
 - [Western Australia Gas Bulletin Board](https://gbbwa.aemo.com.au/)
+- [AEMC Gas Scheme Register](https://www.aemc.gov.au/energy-system/gas/gas-scheme-register)
 
 > **Japan**
 - [Japan Electric Power Exchange](http://www.jepx.org/)
@@ -31,12 +32,23 @@ $ pip install energy-trading-api
 
 ## Usage
 ### AUSTRALIA
+##### AEMC Gas Scheme Register
+```python
+from energy_trading_api import australiaNG 
+df = australiaNG.pipelineRegister()
+df1 = australiaNG.pipelineRegisterSearch(state="NSW",operator="APA Group")
+
+```   
+[AEMC Gas Scheme Register Website](https://www.aemc.gov.au/energy-system/gas/gas-scheme-register)
+
 ##### Western Australia Gas Bulletin Board
 ```python
 from energy_trading_api import wagbb 
 wagbb.capacityOutlook()
 ```    
 [WAGBB API Documentation](https://gbbwa.aemo.com.au/api/v1/document/1f2bc41e-3e42-41eb-86f7-4a10d2d6e4bc/content)
+
+ 
 
 ### JAPAN
 ##### Japan Electric Power Exchange

@@ -8,7 +8,8 @@ The results are returned in the Pandas dataFrame format unless specified otherwi
 Supported APIs:
 > **Australia**
 - [Western Australia Gas Bulletin Board](https://gbbwa.aemo.com.au/)
-- [AEMC Gas Scheme Register](https://www.aemc.gov.au/energy-system/gas/gas-scheme-register)
+- [Australian REC Register](https://www.rec-registry.gov.au/)
+- [AEMC Gas Scheme Register (developing)](https://www.aemc.gov.au/energy-system/gas/gas-scheme-register)
 
 > **Japan**
 - [Japan Electric Power Exchange](http://www.jepx.org/)
@@ -32,6 +33,16 @@ $ pip install energy-trading-api
 
 ## Usage
 ### AUSTRALIA
+##### AEMC Gas Scheme Register
+```python
+from energy_trading_api import australiaREC 
+df = australiaREC.recDay("2019-01-01")
+
+
+```   
+[REC Registry API Documentation](http://www.cleanenergyregulator.gov.au/DocumentAssets/Pages/REC-Registry-API-specifications.aspx)
+
+
 ##### AEMC Gas Scheme Register
 ```python
 from energy_trading_api import australiaNG 

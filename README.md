@@ -33,7 +33,7 @@ $ pip install energy-trading-api
 
 ## Usage
 ### AUSTRALIA
-##### AEMC Gas Scheme Register
+##### Australian REC Register
 ```python
 from energy_trading_api import australiaREC 
 df = australiaREC.recDay("2019-01-01")

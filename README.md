@@ -10,6 +10,7 @@ Supported APIs:
 - [Western Australia Gas Bulletin Board](https://gbbwa.aemo.com.au/)
 - [Australian REC Register](https://www.rec-registry.gov.au/)
 - [AEMC Gas Scheme Register (developing)](https://www.aemc.gov.au/energy-system/gas/gas-scheme-register)
+- [Western Australia Wholesale Electricity Market (WEM)](http://data.wa.aemo.com.au/#)
 
 > **Japan**
 - [Japan Electric Power Exchange](http://www.jepx.org/)
@@ -33,11 +34,20 @@ $ pip install energy-trading-api
 
 ## Usage
 ### AUSTRALIA
+##### Western Australian Wholesale Electricity Market (WEM)
+```python
+from energy_trading_api import australiaWEM 
+df = australiaWEM.loadForecast()
+df1 = australiaWEM.demandSideProgrammePrices(year="2019")
+
+```   
+[WEM Data API Documentation](http://data.wa.aemo.com.au/#)
+
+
 ##### Australian REC Register
 ```python
 from energy_trading_api import australiaREC 
 df = australiaREC.recDay("2019-01-01")
-
 
 ```   
 [REC Registry API Documentation](http://www.cleanenergyregulator.gov.au/DocumentAssets/Pages/REC-Registry-API-specifications.aspx)

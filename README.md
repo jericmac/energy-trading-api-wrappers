@@ -8,6 +8,7 @@ The results are returned in the Pandas dataFrame format unless specified otherwi
 Supported APIs:
 > **Australia**
 - [Western Australia Gas Bulletin Board](https://gbbwa.aemo.com.au/)
+- [ACCC LNG Netback Price Index](https://www.accc.gov.au/regulated-infrastructure/energy/gas-inquiry-2017-2020/lng-netback-price-series)
 - [Australian REC Register](https://www.rec-registry.gov.au/)
 - [AEMC Gas Scheme Register (developing)](https://www.aemc.gov.au/energy-system/gas/gas-scheme-register)
 - [Western Australia Wholesale Electricity Market (WEM)](http://data.wa.aemo.com.au/#)
@@ -54,7 +55,7 @@ netback,netforward,merged = australiaLNG.acccNetbackPrice()
 print(netback.head())
 ```   
 
-[ACCC LNG Netback Price Series](https://www.accc.gov.au/regulated-infrastructure/energy/gas-inquiry-2017-2020/lng-netback-price-series)
+[ACCC LNG Netback Price Series Documentation](https://www.accc.gov.au/system/files/Guide%20to%20the%20LNG%20netback%20price%20series%20-%20October%202018.pdf)
 
 
 ##### Australian REC Register

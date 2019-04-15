@@ -47,6 +47,15 @@ df1 = australiaWEM.demandSideProgrammePrices(year="2019")
 ```   
 [WEM Data API Documentation](http://data.wa.aemo.com.au/#)
 
+##### ACCC LNG Netback Price Series
+```python
+from energy_trading_api import australiaLNG
+netback,netforward,merged = australiaLNG.acccNetbackPrice()
+print(netback.head())
+```   
+
+[ACCC LNG Netback Price Series](https://www.accc.gov.au/regulated-infrastructure/energy/gas-inquiry-2017-2020/lng-netback-price-series)
+
 
 ##### Australian REC Register
 ```python

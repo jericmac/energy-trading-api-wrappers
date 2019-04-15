@@ -1,3 +1,5 @@
+from datetime import timedelta
+from datetime import datetime
 
 
 class commonData:
@@ -59,3 +61,44 @@ class commonData:
         # endregion CRUDE
 
     ])
+
+
+def combineTimePeriodDate(dF,targetColumn='DATETIME',periodColumn='PERIOD',targetColumnFmt ='%Y/%m/%d' ):
+    for i, row in dF.iterrows():
+        minutes_add = ((int(dF.at[i, periodColumn]) * 30) - 30)
+        dF.at[i, targetColumn] = datetime.strptime(dF.at[i, targetColumn], targetColumnFmt) + timedelta(minutes=int(minutes_add))
+    dF.set_index(targetColumn, inplace=True)
+    return dF
+
+
+mappingJEPX = ({0:'DATETIME'
+,1:'PERIOD'
+,2:'Selling bid amount (kWh)'
+,3:'buying bid amount (kWh)'
+,4:'execution total amount (kWh)'
+,5:'system price (JPY/kWh)'
+,6:'Area price Hokkaido (JPY/kWh)'
+,7:'Area price Tohoku (JPY/kWh)'
+,8:'Area price Tokyo (JPY/kWh)'
+,9:'Area Price Chubu (JPY/kWh)'
+,10:'Area Price Hokuriku (JPY/kWh)'
+,11:'Area Price Kansai (JPY/kWh)'
+,12:'Area Price Chuugoku (JPY/kWh)'
+,13:'Area Price Shikoku (JPY/kWh)'
+,14:'Area price Kyushu (JPY/kWh)'
+,15:'spot · time before average price (JPY/kWh)'
+,16:'upper limit value × spot time before average price (JPY/kWh) '
+,17:'lower limit value × spot · time before average price (JPY/kWh)'
+,18:'preliminary value × spot · time before average price (JPY/kWh)'
+,19:'confirmed value × spot · time before average price (JPY/kWh)'
+,20:'avoidable cost national price (JPY/kWh)'
+,21:'avoidable Cost Hokkaido (JPY/kWh)'
+,22:'avoidable cost Tohoku (JPY/kWh)'
+,23:'avoidable cost Tokyo (JPY/kWh)'
+,24:'avoidable cost Chubu (JPY/kWh)'
+,25:'avoidable cost Hokuriku (JPY/kWh)'
+,26:'avoidable Cost Kansai (JPY/kWh)'
+,27:'avoidable Cost Chuugoku (JPY/kWh)'
+,28:'avoid Noh cost Shikoku (JPY/kWh)'
+,29:'avoidable cost Kyushu (JPY/kWh)'
+                        })

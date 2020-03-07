@@ -12,6 +12,7 @@ Supported APIs:
 - [Australian REC Register](https://www.rec-registry.gov.au/)
 - [AEMC Gas Scheme Register (developing)](https://www.aemc.gov.au/energy-system/gas/gas-scheme-register)
 - [Western Australia Wholesale Electricity Market (WEM)](http://data.wa.aemo.com.au/#)
+- [Bureau of Meteorology](http://www.bom.gov.au/)
 
 > **Singapore**
 - [Singapore National Electricity Market (NEMS)](https://www.emcsg.com/)
@@ -82,6 +83,36 @@ from energy_trading_api import wagbb
 wagbb.capacityOutlook()
 ```    
 [WAGBB API Documentation](https://gbbwa.aemo.com.au/api/v1/document/1f2bc41e-3e42-41eb-86f7-4a10d2d6e4bc/content)
+
+##### Australian Bureau of Meteorology
+Retrieves BOM records into a pandas dataframe, given Product and location.
+
+For instance, Bankstown time series data has a product code of IDN60901.94765.
+
+To return Air Temp, Apparent Temp Rel Humidity, Cloud data in a pandas df, simply do:
+
+```python
+from energy_trading_api import australiaBOM 
+df1 = australiaBOM.airTemp('IDN60901.94765')
+df2 = australiaBOM.apparentTemp('IDN60901.94765')
+df2 = australiaBOM.relativeHumidity('IDN60901.94765')
+df3 = australiaBOM.cloud('IDN60901.94765')
+
+```    
+
+You can also access the entire dataset by doing:
+
+```python
+from energy_trading_api import australiaBOM 
+df, df_header = australiaBOM.__call_api_BOM('IDN60901.94765')
+# e.g. dew point:
+print(df['dewpt'].to_string())
+```    
+
+
+[Bankstown BOM Data Example](http://www.bom.gov.au/products/IDN60901/IDN60901.94765.shtml)
+
+
 
  ### SINGAPORE
 ##### Singapore National Electricity Market (NEMS)

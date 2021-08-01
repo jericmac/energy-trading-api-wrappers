@@ -23,6 +23,7 @@ Supported APIs:
 - [Kyushu Electric Power Company - H/5M Demand and Forecasted Demand](http://www.kyuden.co.jp)
 - [Chubu Electric Power Company - Hourly Historical and Current Demand](http://denki-yoho.chuden.jp)
 - [Tokyo Electric Power Company - Hourly Historical and Current Demand](http://tepco.co.jp)
+- [Chugoku Electric Power Company - Hourly Historical Demand](https://www.energia.co.jp/)
 > **Global**
 - [U.S. Energy Information Administration Open Data](https://www.eia.gov/opendata/)
 
@@ -148,6 +149,13 @@ df1 = je.chubuElectricDemandJapaneseRange(begtime="20190101",endtime="20190101")
 from energy_trading_api import japanElectricity as je 
 df = je.tepcoElectricDemandHistoricalJapanese("2018")
 df1 = je.tepcoElectricDemandCurrentJapanese()
+```  
+
+ ##### CHUGOKU Electric Power Company (Chugoku Denki)
+```python
+from energy_trading_api import japanElectricity as je 
+df = je.chugokuElectricDemandJapanese("2018")
+
 ```  
 
 

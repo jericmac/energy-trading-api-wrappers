@@ -14,7 +14,7 @@ import datetime
 
 #region Kyuden
 def __call_api_kyushuElectric(endpoint, column_names=None, skiprows=7,nrows=24):
-    url = f"http://www.kyuden.co.jp/power_usages/csv/juyo-hourly-{endpoint}.csv"
+    url = f"http://www.kyuden.co.jp/td_power_usages/csv/juyo-hourly-{endpoint}.csv"
     s = StringIO(requests.get(url).content.decode("Shift JIS")) #Use Japanese encoding
     try:
         if column_names==None:
@@ -41,7 +41,8 @@ def kyushuElectricDemand5MSEnglish(day="20190101"):
 
 #region Chuden
 def __call_api_chubuElectric(column_names=None, skiprows=0):
-    url = f"http://denki-yoho.chuden.jp/denki_yoho_content_data/areajuyo_current.csv"
+    # url = f"http://denki-yoho.chuden.jp/denki_yoho_content_data/areajuyo_current.csv"
+    url=f"https://powergrid.chuden.co.jp/denki_yoho_content_data/areajuyo_current.csv"
     s = StringIO(requests.get(url).content.decode("Shift JIS")) #Use Japanese encoding
     try:
         if column_names==None:
@@ -101,3 +102,28 @@ def tepcoElectricDemandCurrentEnglish():
 
 #endregion TEPCO
 
+#region Chugoku
+
+def __call_api_CHUGOKU(year,column_names=None,nrows=9999):
+    url = f"https://www.energia.co.jp/nw/jukyuu/sys/juyo-{year}.csv"
+    s = StringIO(requests.get(url).content.decode("Shift JIS"))  # Use Japanese encoding
+    try:
+        if column_names == None:
+            df = pd.read_csv(s, skiprows=2, nrows=nrows)
+            df.set_index('DATE', inplace=True)
+            return df
+        else:
+            return pd.read_csv(s, header=None, skiprows=3, nrows=nrows, names=column_names)
+            df.set_index('DATE', inplace=True)
+            return df
+    except Exception as e:
+        print(e)
+        return None
+
+def chugokuElectricDemandJapanese (year="2020"):
+    return __call_api_CHUGOKU(year)
+
+def chugokuElectricDemandEnglish (year="2020"):
+    return __call_api_CHUGOKU(year,column_names=["date", "time", "actual demand 10,000 kW"])
+
+#endregion Chugoku

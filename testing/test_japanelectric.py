@@ -42,3 +42,14 @@ def test_tepcoElectricDemandHistoricalJapanese():
 def test_tepcoElectricDemandHistoricalEnglish():
     assert not j.tepcoElectricDemandHistoricalEnglish("2018").empty
 #endregion test TEPCO
+
+#region test CHUGOKU
+
+def test_tepcoElectricDemandHistoricalJapanese():
+    assert not j.chugokuElectricDemandJapanese("2018").empty
+
+def test_tepcoElectricDemandHistoricalEnglish():
+    assert not j.chugokuElectricDemandEnglish("2018").empty
+
+
+#endregion test CHUGOKU

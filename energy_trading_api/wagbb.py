@@ -22,6 +22,7 @@ def _basic_gasday_call(endpoint, gasDay="current", record_prefix=None, column_po
     return df
 
 
+
 def actualFlow(gasDay="current", month=None):
     return _basic_gasday_call("actualFlow", gasDay)
 

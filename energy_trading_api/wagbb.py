@@ -21,8 +21,6 @@ def _basic_gasday_call(endpoint, gasDay="current", record_prefix=None, column_po
         return df.join(pd.DataFrame(df.pop(column_pop).tolist()))
     return df
 
-
-
 def actualFlow(gasDay="current", month=None):
     return _basic_gasday_call("actualFlow", gasDay)
 
@@ -33,7 +31,6 @@ def endUserConsumption(gasDay="current"):
 
 def largeUserConsumptionByCategory(gasDay="current"):
     return _basic_gasday_call("largeUserConsumptionByCategory", gasDay)
-
 
 def mediumTermCapacity(gasDay="current"):
     return _basic_gasday_call("mediumTermCapacity", gasDay)

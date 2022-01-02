@@ -127,3 +127,22 @@ def chugokuElectricDemandEnglish (year="2020"):
     return __call_api_CHUGOKU(year,column_names=["date", "time", "actual demand 10,000 kW"])
 
 #endregion Chugoku
+
+#region FEPC
+
+def __call_api_FEPC_powerStatistics(endpoint):
+    url = f"https://raw.githubusercontent.com/jericmac/fepc_japan/main/Power%20Statistics/{endpoint}.csv"
+    try:
+        s = requests.get(url).content
+        df = pd.read_csv(StringIO(s.decode('utf-8')))
+        return df
+    except Exception as e:
+        print(e)
+        return None
+
+def generationFacilityByCompany():
+    endpoint = "1_1%20A%20Generation%20facility%20(by%20company%2C%20by%20power%20source)"
+    return __call_api_FEPC_powerStatistics(endpoint)
+
+
+#endregion FEPC

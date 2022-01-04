@@ -24,6 +24,7 @@ Supported APIs:
 - [Chubu Electric Power Company - Hourly Historical and Current Demand](http://denki-yoho.chuden.jp)
 - [Tokyo Electric Power Company - Hourly Historical and Current Demand](http://tepco.co.jp)
 - [Chugoku Electric Power Company - Hourly Historical Demand](https://www.energia.co.jp/)
+- [FEPC - Federation of Electric Power Companies - Power Statistics Library](https://pdb.fepc.or.jp/pdb/%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E4%B8%80%E8%A6%A7_%E9%9B%BB%E5%8A%9B%E7%B5%B1%E8%A8%88%E6%83%85%E5%A0%B1)
 > **Global**
 - [U.S. Energy Information Administration Open Data](https://www.eia.gov/opendata/)
 
@@ -155,6 +156,12 @@ df1 = je.tepcoElectricDemandCurrentJapanese()
 ```python
 from energy_trading_api import japanElectricity as je 
 df = je.chugokuElectricDemandJapanese("2018")
+
+```  
+##### FEPC - JAPAN Federation of Electric Power Company 
+```python
+from energy_trading_api import japanFEPC as je 
+df = je.demandByIndustry()
 
 ```  
 
